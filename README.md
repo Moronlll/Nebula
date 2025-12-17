@@ -3,6 +3,24 @@
 Nebula is engine for creating imageboards it  
 has all the main code and you can make your own shell or something else
 
+## SECURITY NOTICE
+
+This project is intentionally created WITHOUT strong security mechanisms.
+Nebula provides only a clean and minimal base (a “blank sheet”) for building
+your own imageboard or similar software.
+
+It does NOT include:
+- advanced protection against attacks
+- strict file validation
+- CSRF / XSS / abuse protection
+- production-grade security practices
+
+You are fully responsible for extending and securing this code
+before using it in a public or production environment.
+
+This engine is meant for learning, experimentation, and customization,
+not as a ready-made secure solution.
+
 # Setup
 1.Download XAMP  
 2.Uncomment the line ;extension=gd by removing ";" in the php/php.ini file  

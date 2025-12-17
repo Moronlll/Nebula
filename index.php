@@ -10,6 +10,27 @@
 
 -->
 
+<!--
+SECURITY NOTICE
+
+This project is intentionally created WITHOUT strong security mechanisms.
+Nebula provides only a clean and minimal base (a “blank sheet”) for building
+your own imageboard or similar software.
+
+It does NOT include:
+- advanced protection against attacks
+- strict file validation
+- CSRF / XSS / abuse protection
+- production-grade security practices
+
+You are fully responsible for extending and securing this code
+before using it in a public or production environment.
+
+This engine is meant for learning, experimentation, and customization,
+not as a ready-made secure solution.
+-->
+
+
 <!DOCTYPE html> <!-- Declaring the document type as HTML5 -->
 <html lang="en"> <!-- Setting the page language to English -->
 
