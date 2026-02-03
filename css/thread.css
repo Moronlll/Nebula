@@ -66,3 +66,44 @@ Example:
 This rule applies only when the screen width is 600px or less.
 
 */
+
+/* This is for quoting. */
+.quote {
+    color: #d00;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.quote:hover {
+    text-decoration: underline;
+}
+
+
+/* scroll button. */
+.scroll-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+}
+
+.scroll-buttons button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    border: none;
+    border-radius: 50%;
+    background-color: #444;
+    color: #fff;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s, transform 0.2s;
+}
+
+.scroll-buttons button:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}

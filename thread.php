@@ -82,13 +82,19 @@ foreach ($posts as $post) {
 
 // Recursive function to display posts with nested replies
 function displayReplies($post, $replies, $op_ip_address) {
-    echo "<li>";
-    
+    echo "<li id='post-{$post['id']}'>";
+
     // Show id and date
     echo "id: <strong>" . htmlspecialchars($post['id']) . "</strong> | Date: " . htmlspecialchars($post['created_at']) . "<br>";
     
-    // Content with safe output and line breaks
-    echo nl2br(htmlspecialchars($post['content'])) . "<br>";
+    $text = htmlspecialchars($post['content']);
+    $text = preg_replace(
+    '/&gt;&gt;(\d+)/',
+    '<a class="quote" href="#post-$1">&gt;&gt;$1</a>',
+    $text
+    );
+    echo nl2br($text) . "<br>";
+
     
     // OP mark if IP matches
     if ($post['ip_address'] == $op_ip_address) {
@@ -148,9 +154,16 @@ function displayReplies($post, $replies, $op_ip_address) {
     <meta charset="UTF-8">
     <link rel="icon" href="data/icon.png" type="image/x-icon"> <!-- Set icon -->
     <link rel="stylesheet" href="css/thread.css"> <!-- Connect CSS -->
+    <script src="scripts/scroll.js"></script> <!-- Connect JS -->
     <title><?php echo htmlspecialchars($thread['title']); ?> - Thread</title>
 </head>
 <body>
+
+    <!-- scroll function-->
+    <div class="scroll-buttons">
+        <button onclick="scrollToTop()" title="Up">▲</button>
+        <button onclick="scrollToBottom()" title="Down">▼</button>
+    </div>
     <a href="board.php?board=<?php echo htmlspecialchars($board); ?>">Back to board</a>
     <h1><?php echo htmlspecialchars($thread['title']); ?> <small>(id: <?php echo $thread['id']; ?>)</small></h1>
 
@@ -199,5 +212,12 @@ function displayReplies($post, $replies, $op_ip_address) {
         <input type="file" name="file" accept="image/*,video/*,audio/*,application/*"><br>
         <button type="submit">Submit</button>
     </form>
+
+    <!-- scroll function-->
+    <div class="scroll-buttons">
+        <button onclick="scrollToTop()" title="Up">▲</button>
+        <button onclick="scrollToBottom()" title="Down">▼</button>
+    </div>
+
 </body>
 </html>
